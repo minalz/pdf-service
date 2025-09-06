@@ -1,0 +1,7 @@
+{
+  "format": "A4",
+  "margin": {"top": "20mm", "bottom": "20mm"},
+  "displayHeaderFooter": true,
+  "headerTemplate": "<div style='text-align:center;font-size:10px;'>{{title}} - 第<span class='pageNumber'></span>页</div>",
+  "footerTemplate": "<div style='text-align:right;font-size:10px;'>{{createTime}}</div>"
+}
