@@ -2,6 +2,5 @@
   "format": "A4",
   "margin": {"top": "20mm", "bottom": "20mm"},
   "displayHeaderFooter": true,
-  "headerTemplate": "<div style='text-align:center;font-size:10px;'>{{title}} - 第<span class='pageNumber'></span>页</div>",
-  "footerTemplate": "<div style='text-align:right;font-size:10px;'>{{createTime}}</div>"
-}
+  "headerTemplate": "<span style='display:inline-block;width:100%;height:15mm;line-height:15mm;background:transparent;font-size:10px;text-align:center;color:#000;padding:0;margin:0;'>{{title}} - 第<span class=\"pageNumber\"></span>页 / 共<span class=\"totalPages\"></span>页</span>",
+  "footerTemplate": "<span style='display:inline-block;width:100%;height:15mm;line-height:15mm;background:transparent;font-size:9px;text-align:right;color:#666;padding:0;margin:0;'>生成时间：{{createTime}}</span>"}

@@ -36,7 +36,7 @@ export class PdfService {
             const buf = await page.pdf({
                 format: options?.format ?? 'A4',
                 printBackground: options?.printBackground ?? true,
-                margin: options?.margin ?? { top: '10mm', bottom: '10mm', left: '10mm', right: '10mm' },
+                margin: options?.margin ?? { top: '20mm', bottom: '20mm', left: '10mm', right: '10mm' },
                 ...options,
                 displayHeaderFooter: options?.displayHeaderFooter ?? true,
                 headerTemplate: options?headerTemplate : '',
