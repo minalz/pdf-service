@@ -2,7 +2,6 @@ import { Injectable, Logger } from '@nestjs/common';
 import puppeteer, {Browser} from 'puppeteer';
 import { createPool } from 'generic-pool';
 import type { PdfRequest } from './dto/pdf-request.dto';
-import { writeFileSync } from 'fs';
 import * as PDF_OPTIONS from './pdf.options.json'
 
 @Injectable()
@@ -18,8 +17,6 @@ export class PdfService {
     }, { min: 1, max: 4 });
 
     async generate({ html, options }: PdfRequest): Promise<Buffer> {
-        writeFileSync('/tmp/received.html', html);   // Windows 用 D:\\received.html
-        this.logger.log('>>>> HTML 已写入 /tmp/received.html');
         const browser = await this.pool.acquire();
         const page = await browser.newPage();
         try {
