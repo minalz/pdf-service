@@ -100,21 +100,6 @@
       pdf.save(`report_${Date.now()}.pdf`);
     }
 
-    /* 2. 纯 JS 内联（无 TS 符号） */
-    function inlineStyles(el) {
-      const css = window.getComputedStyle(el);
-      ['borderTop','borderRight','borderBottom','borderLeft',
-        'backgroundColor','color','fontSize','paddingTop','paddingBottom',
-        'paddingLeft','paddingRight','textAlign','lineHeight']
-              .forEach(k => {
-                const v = css[k];
-                if(v && v!=='none' && v!=='auto' && v!=='transparent'){
-                  el.style[k] = v;   // 无 as any，无 :
-                }
-              });
-      Array.from(el.children).forEach(inlineStyles);
-    }
-
     function cloneWithStyles(targetId = 'content') {
       const clone = document.getElementById(targetId).cloneNode(true);
 
@@ -134,10 +119,6 @@
     }
 
     async function exportPDF2() {
-      // const clone = document.getElementById('content').cloneNode(true);
-      // inlineStyles(clone);
-      // const html = clone.outerHTML;
-      // const html = document.getElementById('content').outerHTML;
       const html = cloneWithStyles(); // 已含完整样式
       const res = await fetch('http://localhost:3000/api/pdf', {
         method: 'POST',
